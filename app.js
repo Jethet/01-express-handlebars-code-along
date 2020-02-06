@@ -18,6 +18,19 @@ app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + '/views/partials');
 
 //ROUTES
+app.get('/', (req, res, next) => {
+    res.render('index');
+});
+
+app.get('/movies', (req, res, next) => {
+    const moviesSlice = movies.slice(0, 40);
+
+    const data = {
+        movies: moviesSlice
+    }
+
+    res.render('movies', data);
+});
 
 //START THE SERVER
 app.listen(PORT, () => {
