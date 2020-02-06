@@ -27,7 +27,7 @@ app.get('/movies', (req, res, next) => {
 
     const data = {
         movies: moviesSlice
-    }
+    };
 
     res.render('movies', data);
 });
